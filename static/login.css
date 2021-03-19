@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    
+}
+body{
+    margin: 0;
+}
+.background{
+    height: 100%;
+    width: 100%;
+    background-image: url("../static/images/background.png");
+    background-size:cover;
+    position:absolute;
+}
+
+.box{
+    
+     width: 380px;
+     height: 480px;
+     position:relative;
+     margin: 6% auto;
+     background:white;
+     padding: 5px;
+     overflow: hidden;
+     box-shadow: 5px 5px 5px #f8b762;
+     border-radius: 15px;
+}
+ 
+
+.button_box{
+    width: 220px;
+    margin: 35px auto;
+    position:relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+.toggle_button{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+#btn{
+    top:0 ;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height:100%;
+    background: linear-gradient(to right, #ff105f,#ffad06);
+    border-radius: 30px;
+    transition: .5s;
+}
+.icons{
+     margin:30px; 
+    text-align: center;
+}
+
+.icons img{
+    width: 70px;
+    margin:0 12px;
+    box-shadow: 0 0 20px 0 #7f7f7f3d;
+    cursor: pointer;
+    border-radius: 50%;
+
+}
+
+.input-group{
+    top: 180px;
+    position: absolute;
+    width:280px;
+    transition: .5s;
+}
+
+.input-field{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top:0;
+    border-right: 0;
+    border-bottom: 1px solid #999 ;
+    outline: none;
+    background: transparent;
+
+}
+
+.submit-btn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #ff105f,#ffad06);
+    border:0;
+    outline: none;
+    border-radius: 30px;
+}
+
+.check-box{
+    margin: 30px 10px 30px 0;
+}
+
+span{
+    color: #777;
+    font-size: 12px;
+    bottom: 68px;
+    position:absolute;
+
+}
+
+#login{
+    left: 50px;
+}
+
+#register{
+    left: 450px;
+}
+
+.column {
+    float: left;
+    /* width: 33.33%;
+    padding: 5px; */
+    width: 380px;
+     height: 480px;
+     position:relative;
+     margin: 6% auto;
+     /* background: rgb(247, 204, 228); */
+     padding: 5px;
+     overflow: hidden;
+     /* box-shadow: 5px 5px 5px #f8b762; */
+     border-radius: 15px;
+     margin-left: 330px;
+
+  }
+
+  .column1{
+    /* float: right; */
+    /* width: 33.33%;
+    padding: 5px; */
+    /* width: 550px;
+     height: 700px; */
+     position:relative;
+     margin: 6% auto; 
+     padding: 5px;
+     overflow: hidden;
+     border-radius: 15px;
+     margin-left: 600px;
+     margin-top: 0;
+     bottom: 590px;
+     
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+ 
+
