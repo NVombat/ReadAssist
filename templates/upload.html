@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html> 
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="../static/upload.css">
+ 
+  <style>
+    body {
+    background-image: url('../static/images/upload.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="main">
+      <!-- <div class="logo">
+        <img src="../static/images/book.png">
+      </div> -->
+      <ul>
+        
+
+        <li><a href="/dashboard">Dashboard</a></li>
+
+      </ul>
+    </div>
+  </header>
+
+    <div class="row">
+        <div class="column">
+
+          <form method="POST" enctype="multipart/form-data">
+            <div class="upload-btn-wrapper">
+              <input type="file" name="image" />
+              <button class="btn" type="submit">Upload a file</button>  
+                              
+          </div>
+          <button class="btn1" type="submit" >Submit</button>
+      </form>
+
+        </div>
+        <div class="column">
+
+          <img src="../static/images/upload-animate.svg"  style="margin-left: 90px; margin-top:10px;width: 75%;">
+        </div>
+    </div>
+   
+
+</body>
+</html>
