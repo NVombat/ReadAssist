@@ -16,7 +16,7 @@ from models.savedtext import (
 )
 
 from models.summ import (
-    getq
+    getq, summary_tbl
 )
 
 from ML.OCR import get_text
@@ -28,12 +28,13 @@ import sqlite3
 #from ML.summarize import
 #from ML.tts import
 
-app = Flask(_name_)
+app = Flask(__name__)
 app.secret_key = 'somekey'
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 make_user()
 summarydb("app.db")
+summary_tbl("app.db")
 
 # transformer = wrapper.customwrapper()
 
@@ -98,7 +99,7 @@ def upload():
                 text = get_text(img.filename)
 
             text = ' '.join(text)
-            insertsummary('summary_tbl', g.user[0], text, path='app.db')
+            insertsummary('Text', g.user[0], text, path='app.db')
 
         return render_template("upload.html")
     return redirect("/")
@@ -106,6 +107,7 @@ def upload():
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dash():
+    #print("DASH:", g.user)
     if g.user != None:
         name = getname(g.user)
         
@@ -114,10 +116,11 @@ def dash():
 
 @app.route('/display', methods=['GET', 'POST'])
 def disp():
+    #print("DISP: ", g.user)
     if g.user != None:
         summ = getq(g.user[0])[0]
         return render_template("display.html", name=getname(g.user),  text=summ)
     return redirect('/')
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(debug=True, port=5000)

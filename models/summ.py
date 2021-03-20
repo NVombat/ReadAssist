@@ -1,7 +1,7 @@
 import sqlite3
 
-def summary_tbl():
-    conn = sqlite3.connect("app.db")
+def summary_tbl(path : str):
+    conn = sqlite3.connect(path)
     cur = conn.cursor()
 
 
@@ -23,6 +23,6 @@ def getq(user_email : str):
 
     sql = f"SELECT Summary FROM summary_tbl WHERE Email='{user_email}' "
     cur.execute(sql)
-    fsummary = cur.fetchone()
+    fsummary = cur.fetchall()[-1]
     
     return fsummary

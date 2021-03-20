@@ -32,7 +32,7 @@ async def S(user : str):
     min_len = int(len(text.split(" "))*0.2)
     summary = transformer.summarize(text, min_length=min_len, max_lenght=max_len)
     
-    #send_mail_summ(user,summary[0]["summary_text"])
+    send_mail_summ(user,summary[0]["summary_text"])
     insert(user, summary[0]["summary_text"])
     response = RedirectResponse(url='http://localhost:5000/display')
     
@@ -64,12 +64,13 @@ async def Q(user : str):
                     #print(di["question"])
                     li.append(di["question"])
                 #print("TYPE - FQLIST: ", type(fqlist))
-                insert(user, " ".join(li))
+                insert(user, "\n".join(li))
                 print(20*'-')
                 templist = []
                 qlist = []
                 break
     
+    #send_mail_ques(user, )
     response = RedirectResponse(url='http://localhost:5000/display')
     
     return response
