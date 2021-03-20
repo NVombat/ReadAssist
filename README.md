@@ -52,13 +52,10 @@ The Optical Character Recognition (OCR) technology converts an image intput to t
   1.  Deep Learning
   2.  Transformers
   3.  NLTK
-  4.  Scikit-Learn
-  5.  Pytorch
-  6.  Rake
-  7.  OCR
+  4.  Pytorch
+  5.  OCR
   
   
-
 ##### Frontend Tech Stack :
 
 1. HTML/CSS
