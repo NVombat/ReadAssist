@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+
+  background: url(../static/images/display_page2.png);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: sans-serif;
+    font-weight: 400;
+  }
+
+ul{
+  float:right;
+  list-style-type:none;
+  
+}
+
+ul li{
+  display: inline-block;
+  margin: 0;
+  font-size: 23px;
+}
+
+ul li a{
+  text-decoration: none;
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 20px;
+  /* transition: 0.6s ease; */
+  margin-top: 0;
+  
+}
+
+ul li a:hover{
+  
+  background: linear-gradient(to right, #ff105f,#ffad06);
+  color:black;
+  
+}
+
+.logo img{
+  float: left;
+  width: 57px;
+  height: auto;
+}
+
+.main{
+  max-width: 1200px;
+  margin: auto;
+}
+
+.text{
+  margin:190px  0px;
+  margin-left: 100px;
+  margin-right: 0px;
+}
+
+.column {
+    /* float: left; */
+    width: 50%;
+    
+  }
+  
+  .row::after 
+  {
+    content: "";
+    clear: both;
+    display: table;
+   
+  }
+
+  .column1{
+    float:left;
+    margin:70px 10px  0px;
+    width:600px;
+    height:600px;
+    
+ 
+  }
+  .container{
+      position: relative;
+      width: 1300px;
+      height: 300px;
+      border: 2px solid #000000;
+      margin: -160px 0 ;
+      margin-left: 100px;
+      padding: 30px;
+      box-sizing: border-box;
+      background:white;
+
+    }
+  
+</style>
+</head>
+<body>
+    <header>
+    <div class="main">
+    
+        <!-- <div class="logo">
+          <img src="../static/images/book.png">
+        </div> -->
+    
+    
+        <ul>
+          <li><a href="">Dashboard</a></li>
+          
+        </ul>
+    
+      </div>
+    </header>
+
+
+<div class="row">
+  <div class="column">
+    
+    <div class="text">
+      <h1 style="color: white;">Hey {{name}}</h1>
+      <h2 style="color: white;">Here's your {{option}} </h2>
+      </div>
+      <div class="container"></div>
+  </div>
+  <!-- <div class="column1">
+    
+    <img src = "../static/images/display.gif" alt="My Happy SVG" style="width: 600px;height: 600px;"/>
+    
+  </div> -->
+  
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background: url(../static/images/temp.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: sans-serif;
+    font-weight: 400;
+  }
+
+ul{
+  float:right;
+  list-style-type:none;
+  
+}
+
+ul li{
+  display: inline-block;
+  margin: 0;
+  font-size: 23px;
+}
+
+ul li a{
+  text-decoration: none;
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 20px;
+  /* transition: 0.6s ease; */
+  margin: 0;
+  
+}
+
+ul li a:hover{
+  
+  background: linear-gradient(to right, #ff105f,#ffad06);
+  color:black;
+  
+}
+
+.logo img{
+  float: left;
+  width: 57px;
+  height: auto;
+}
+
+.main{
+  max-width: 1200px;
+  margin: auto;
+}
+
+.text{
+  margin:240px  0px;
+  
+}
+
+.column {
+    float: left;
+    width: 50%;
+    
+  }
+  
+  .row::after 
+  {
+    content: "";
+    clear: both;
+    display: table;
+   
+  }
+
+  .column1{
+    float:left;
+    margin:100px 10px  0px;
+    width:500px;
+    height:500px;
+    
+ 
+  }
+  .container{
+      position: relative;
+      max-width: 600px;
+      height: 250px;
+      border: 2px solid #000000;
+      margin: -190px 0 ;
+      padding: 30px;
+      box-sizing: border-box;
+
+    }
+  
+</style>
+</head>
+<body>
+  <div class="main">
+    
+    <!-- <div class="logo">
+      <img src="../static/images/book.png">
+    </div> -->
+
+
+    <ul>
+      <li><a href="http://localhost:2222/summ?user={{email}}">Summarize</a></li>
+      <li><a href="http://localhost:2222/ques?user={{email}}">Question</a></li>
+      <li><a href="http://localhost:2222/voic?user={{email}}">Voice</a></li>
+    </ul>
+
+  </div>
+</header>
+
+
+<div class="row">
+  <div class="column">
+    
+    <div class="text">
+      <h1>Hey {{name}}</h1>
+       <p style="font-size:large;"> Great job now that your file is uploaded, head over to the Navigation Bar<br>and Choose what you'd like to do today!! Hope you have a fun learning<br> experience with<br></p>
+      <h2>Read Assist</h2>
+      </div>
+      <!-- <div class="container"></div> -->
+  </div>
+  <div class="column1">
+    
+    <img src = "../static/images/learning-animate.svg" alt="My Happy SVG" "/>
+    
+  </div>
+  
+</div>
+</body>
+</html>
