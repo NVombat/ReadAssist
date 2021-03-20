@@ -1,5 +1,6 @@
 import sqlite3
 
+#function for creating table - user
 def make_user():
     conn = sqlite3.connect("app.db")
     cur = conn.cursor()
@@ -9,6 +10,7 @@ def make_user():
     cur.execute(sql)
     conn.commit()
 
+#function to insert values into user table 
 def insert(tablename : str, values: tuple):
     conn = sqlite3.connect("app.db")
     cur = conn.cursor()
@@ -17,6 +19,7 @@ def insert(tablename : str, values: tuple):
     cur.execute(sql)
     conn.commit()
 
+#function checks if email and password match
 def checkpassword(password : str, email : str):
     
     conn = sqlite3.connect("app.db")
@@ -30,7 +33,7 @@ def checkpassword(password : str, email : str):
         return True
 
     return False
-
+#function to get user's email 
 def getemail():
     
     conn = sqlite3.connect("app.db")
@@ -41,7 +44,7 @@ def getemail():
     emails = cur.fetchall()
     
     return emails
-
+#function to get name from user table
 def getname(email: tuple):
     email = email[0]
     conn = sqlite3.connect("app.db")
