@@ -26,7 +26,7 @@ Creating ReadMe's for your Github repository can be tedious.  I hope this templa
 - Technology 1
 - Technology 2
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#read-assist)
 
 ---
 
@@ -34,7 +34,7 @@ Creating ReadMe's for your Github repository can be tedious.  I hope this templa
 
 
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#read-assist)
 
 ---
 
@@ -48,16 +48,16 @@ Creating ReadMe's for your Github repository can be tedious.  I hope this templa
 6. nltk
 7. Pytesseract
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#read-assist)
 
 ---
 
 ## Preview
-[Back To The Top](#read-me-template)
+[Back To The Top](#read-assist)
 
 ---
 
 ## Contributors
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#read-assist)
 
