@@ -1,3 +1,6 @@
+#Built On type of a pre existing library - transformers
+#It modifies that -> It reverses the tokenisation part where instead of answering questions
+#It extracts questions and answers
 import itertools
 import logging
 from typing import Optional, Dict, Union

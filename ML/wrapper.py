@@ -1,3 +1,5 @@
+#Encapsulates all models
+#Caches the models and uses the preexisting model instead of reloading it
 from .OCR import get_text
 from .ptt import get_pdf
 import pytesseract 
@@ -27,8 +29,6 @@ class customwrapper():
         if self.generatemodel == None:
             self.generatemodel = pipeline('text2text-generation')
         return self.generatemodel(text)
-
-
 
 if __name__ == '__main__':
     # gpt = pipeline('text-generation', model='gpt')

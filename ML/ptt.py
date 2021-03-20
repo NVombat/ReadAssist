@@ -3,6 +3,7 @@ from PIL import Image
 import pytesseract 
 import sys 
 from pdf2image import convert_from_path 
+
 #Import function that converts images to text from OCR.py (. symbolyses the same directory)
 from .OCR import get_text
 import re
