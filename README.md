@@ -7,11 +7,11 @@
 ---
 
 ### Table of Contents
-You're sections headers will be used to reference location of destination.
+Click below to check out our project details.
 
 - [Description](#description)
 - [System Diagram](#sys-diag)
-- [Requirements](#requirements)
+- [Tech Stack](#tech-stack)
 - [Preview](#preview)
 - [Contributors](#contributors)
 
@@ -21,10 +21,10 @@ You're sections headers will be used to reference location of destination.
 
 Creating ReadMe's for your Github repository can be tedious.  I hope this template can save you time and effort as well as provide you with some consistency across your projects.
 
-#### Technologies
+#### Problems it solves
 
-- Technology 1
-- Technology 2
+- 
+- 
 
 [Back To The Top](#read-assist)
 
@@ -38,15 +38,15 @@ Creating ReadMe's for your Github repository can be tedious.  I hope this templa
 
 ---
 
-## Requirements
+## Tech Stack
 
-1. Torch
-2. Transformers==3.3.0
-3. Flask
-4. Fastapi
-5. Uvicorn[standard]
-6. nltk
-7. Pytesseract
+1. 
+2. 
+3. 
+4.
+5. 
+6. 
+7. 
 
 [Back To The Top](#read-assist)
 
@@ -56,6 +56,7 @@ Creating ReadMe's for your Github repository can be tedious.  I hope this templa
 [Back To The Top](#read-assist)
 
 ---
+
 
 ## Contributors
 
