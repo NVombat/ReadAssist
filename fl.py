@@ -1,3 +1,4 @@
+#Import Libraries & Functions
 from flask import Flask, render_template, request, session, g, redirect
 from PIL import Image
 from ML import wrapper
@@ -25,8 +26,6 @@ from gtts import gTTS
 import os
 from ML.ptt import get_pdf
 import sqlite3
-#from ML.summarize import
-#from ML.tts import
 
 app = Flask(__name__)
 app.secret_key = 'somekey'
@@ -38,6 +37,7 @@ summary_tbl("app.db")
 
 # transformer = wrapper.customwrapper()
 
+#This decorator is what converts them to URLs
 @app.before_request
 def security():
     g.user = None
@@ -51,6 +51,7 @@ def security():
         except Exception as e:
             print("failed")
  
+ #LOGIN
 @app.route("/", methods=["GET", 'POST'])
 def login():
     print("IN LOGIN")
@@ -81,7 +82,7 @@ def login():
         # print(password, email, name)
     return render_template("login.html")
 
-
+#Checks type of file and returns the extension type
 def checkext(name):
     ext = name.split('.')[1]
     return ext
@@ -93,18 +94,21 @@ def upload():
         if request.method=="POST":
             
             img = request.files["image"]
+            #If pdf then run pdf function
             if checkext(img.filename) == 'pdf':
                 text = get_pdf(img.filename)
+            #For images
             else:
                 text = get_text(img.filename)
 
+            #Insert text into database
             text = ' '.join(text)
             insertsummary('Text', g.user[0], text, path='app.db')
 
         return render_template("upload.html")
     return redirect("/")
 
-
+#DASHBOARD
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dash():
     #print("DASH:", g.user)
@@ -114,6 +118,7 @@ def dash():
         return render_template("temp.html", name=name, email=g.user[0])
     return redirect('/')
 
+#DISPLAY
 @app.route('/display', methods=['GET', 'POST'])
 def disp():
     #print("DISP: ", g.user)
