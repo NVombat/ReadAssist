@@ -119,6 +119,7 @@ def disp():
     #print("DISP: ", g.user)
     if g.user != None:
         summ = getq(g.user[0])[0]
+        #print(summ)
         return render_template("display.html", name=getname(g.user),  text=summ)
     return redirect('/')
 

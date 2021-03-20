@@ -20,7 +20,7 @@ def send_mail_summ(e : str, s : str):
     user_name = n[0]
     
 
-    subject = 'Read Assist Summary'
+    subject = 'Read Assist Summary:'
     body = f'Dear {user_name}\nThankyou for choosing Read Assist.\n\nTHIS IS THE SUMMARY OF THE UPLOADED DOCUMENT.\n\n{s}\n\nWe hope to see you again!\n\nThe Read Assist Team'
 
     msg = f'Subject: {subject}\n\n{body}'
@@ -45,7 +45,7 @@ def send_mail_ques(e : str, s : str):
     user_name = n[0]
     
 
-    subject = 'Read Assist Questions'
+    subject = 'Read Assist Questions:'
     body = f'Dear {user_name}\nThankyou for choosing Read Assist.\n\n THESE ARE THE QUESTIONS BASED ON THE UPLOADED FILE:\n\n{s}\n\nWe hope to see you again!\n\nThe Read Assist Team'
 
     msg = f'Subject: {subject}\n\n{body}'

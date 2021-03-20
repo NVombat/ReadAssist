@@ -7,7 +7,7 @@ from models.savedtext import (
 )
 
 from models.summ import (
-    insert
+    insert, getq
 )
 
 import time
@@ -69,8 +69,8 @@ async def Q(user : str):
                 templist = []
                 qlist = []
                 break
-    
-    #send_mail_ques(user, )
+    qu = getq(user)
+    send_mail_ques(user, qu[0])
     response = RedirectResponse(url='http://localhost:5000/display')
     
     return response
@@ -99,7 +99,7 @@ def convertpts(para : list):
 async def V(user : str):
     text = str(getsummary(user, "app.db")[-1][0])
     #print(text)
-    para = list(filter(lambda x: x != "" and len(re.sub(r" ", "", x)) != 0, text.split("\n\n")))
+    para = list(filter(lambda x: x != "" and len(re.sub(r" ", "", x)) != 0, text.split('\n')))
 
     #Converts the text (received in paragraphs) to speech
     convertpts(para)
