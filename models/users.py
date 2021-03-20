@@ -1,10 +1,9 @@
 import sqlite3
 
-#function for creating table - user
+#function for creating table to store user
 def make_user():
     conn = sqlite3.connect("app.db")
     cur = conn.cursor()
-
 
     sql = 'CREATE TABLE IF NOT EXISTS user(Email TEXT, Name TEXT, Password TEXT)'
     cur.execute(sql)

@@ -1,10 +1,9 @@
 import sqlite3
 
-#function for creating summary_tbl
+#function for creating summary_tbl to store summary OR questions
 def summary_tbl(path : str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
-
 
     sql = 'CREATE TABLE IF NOT EXISTS summary_tbl(Email TEXT, Summary TEXT)'
     cur.execute(sql)
@@ -19,7 +18,7 @@ def insert(user_email_id : str, summary_text: str):
     cur.execute(sql)
     conn.commit()
 
-#function that returns the final summary from table where email = currently logged in user
+#function that returns the final summary OR questions from table where email = currently logged in user
 def getq(user_email : str):
     conn = sqlite3.connect("app.db")
     cur = conn.cursor()

@@ -63,17 +63,13 @@ async def Q(user : str):
                 print(' '.join(templist))
                 #Generates questions and then appends to list
                 q = transformer.question(' '.join(templist))
-                #print(q)
                 qlist.append(q)
                 
             except Exception as e:
                 #Longest list of questions
                 fqlist=qlist.pop()
-                #print("THIS IS THE LONGEST SET OF Q/A: ", fqlist)
                 for di in fqlist:
-                    #print(di["question"])
                     li.append(di["question"])
-                #print("TYPE - FQLIST: ", type(fqlist))
                 #Inserts questions into database
                 insert(user, "\n".join(li))
                 print(20*'-')
@@ -114,7 +110,6 @@ def convertpts(para : list):
 async def V(user : str):
     #Get text from database 
     text = str(getsummary(user, "app.db")[-1][0])
-    #print(text)
     #Convert text to paragraphs
     para = list(filter(lambda x: x != "" and len(re.sub(r" ", "", x)) != 0, text.split('\n')))
 

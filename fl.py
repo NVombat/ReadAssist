@@ -111,7 +111,6 @@ def upload():
 #DASHBOARD
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dash():
-    #print("DASH:", g.user)
     if g.user != None:
         name = getname(g.user)
         
@@ -121,10 +120,8 @@ def dash():
 #DISPLAY
 @app.route('/display', methods=['GET', 'POST'])
 def disp():
-    #print("DISP: ", g.user)
     if g.user != None:
         summ = getq(g.user[0])[0]
-        #print(summ)
         return render_template("display.html", name=getname(g.user),  text=summ)
     return redirect('/')
 

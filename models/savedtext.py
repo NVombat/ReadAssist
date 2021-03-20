@@ -1,6 +1,6 @@
 import sqlite3
 
-#creates a table Text
+#Creates a table Text to store the users complete uploaded text
 def summarydb(path :str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
@@ -9,7 +9,7 @@ def summarydb(path :str):
     cur.execute(cmd)
     conn.commit()
 
-#insert commands for adding summary 
+#insert commands for adding TEXT 
 def insertsummary(tablename : str, email : str, summary : str, path :str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
@@ -21,7 +21,7 @@ def insertsummary(tablename : str, email : str, summary : str, path :str):
     cur.execute(cmd)
     conn.commit()
 
-#commands to get fetch complete summary from table where email = currently logged in user    
+#commands to get fetch complete TEXT from table where email = currently logged in user    
 def getsummary(email : str, path : str):
     
     conn = sqlite3.connect(path)
