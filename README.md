@@ -1,6 +1,7 @@
 # Read Assist
 
-![Project Image](project-image-url)
+![Readme_logo](https://user-images.githubusercontent.com/68011962/111867874-dec09a80-899c-11eb-9bdc-cd137342c0ec.png)
+
 
 > This is a project made as a Submission for HACK NITR under the Open Innovation Category
 
