@@ -22,7 +22,7 @@ Click below to check out our project details.
 
 Read Assist
 
-This particular web application has been designed from scratch to faciliate effective reading and studying from long texts. The application has a user friendly interface that requires the user to login and upload the text that is to be read / studied.
+This particular web application has been designed from scratch to facilitate effective reading and studying from long texts. The application has a user friendly interface that requires the user to login and upload the text that is to be read / studied.
 
 The Optical Character Recognition (OCR) technology converts an image intput to text. Thereafter various machine learning modules such as speech conversion, summarisers and question generators provide the user options to summarise the text, show questions based on the text or read out the text. 
 
