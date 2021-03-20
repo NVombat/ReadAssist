@@ -1,3 +1,4 @@
+#Import Libraries and functions
 from fastapi import FastAPI 
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
@@ -23,23 +24,29 @@ from ML.wrapper import customwrapper
 transformer = customwrapper()
 app = FastAPI()
 
-
+#SUMMARY
 @app.get('/summ')
 async def S(user : str):
-
+    #Gets text from database
     text = getsummary(user, "app.db")[-1][0]
     max_len = int(len(text.split(" "))*0.5)
     min_len = int(len(text.split(" "))*0.2)
+    #Creates summary and limits min and max length
     summary = transformer.summarize(text, min_length=min_len, max_lenght=max_len)
     
+    #Sends email with summary
     send_mail_summ(user,summary[0]["summary_text"])
+    #Inserts summary into database
     insert(user, summary[0]["summary_text"])
+    #Redirects to display
     response = RedirectResponse(url='http://localhost:5000/display')
     
     return response
 
+#Questions
 @app.get('/ques')
 async def Q(user : str):
+    #Gets text from database
     quest = getsummary(user, "app.db")[-1][0]
     templist = []
     
@@ -48,36 +55,44 @@ async def Q(user : str):
     fqlist = []
     li = []
     q = None
+    #Runs through the text and generates every 20 words
     for i in range(len(quest)):
         templist.append(quest[i])
         if i % 20 == 0 and i != 0:
             try:
                 print(' '.join(templist))
+                #Generates questions and then appends to list
                 q = transformer.question(' '.join(templist))
-                print(q)
+                #print(q)
                 qlist.append(q)
                 
             except Exception as e:
+                #Longest list of questions
                 fqlist=qlist.pop()
-                print("THIS IS THE LONGEST SET OF Q/A: ", fqlist)
+                #print("THIS IS THE LONGEST SET OF Q/A: ", fqlist)
                 for di in fqlist:
                     #print(di["question"])
                     li.append(di["question"])
                 #print("TYPE - FQLIST: ", type(fqlist))
+                #Inserts questions into database
                 insert(user, "\n".join(li))
                 print(20*'-')
                 templist = []
                 qlist = []
                 break
+    #Gets questions from database
     qu = getq(user)
+    #Sends mail with questions
     send_mail_ques(user, qu[0])
+    #Redirects to the DISPLAY
     response = RedirectResponse(url='http://localhost:5000/display')
     
     return response
 
-
+#Converts para to speech
 def convertpts(para : list):
     #For each para in the list of paragraphs
+    #runs for each paragraph
     for p in para:
         #Convert the paragraph to an audio file which gets overwritten for each para
         language = 'en'
@@ -94,16 +109,18 @@ def convertpts(para : list):
         #Wait for 2.5 seconds
         time.sleep(2.5)
 
-
+#Voice
 @app.get('/voic')
 async def V(user : str):
+    #Get text from database 
     text = str(getsummary(user, "app.db")[-1][0])
     #print(text)
+    #Convert text to paragraphs
     para = list(filter(lambda x: x != "" and len(re.sub(r" ", "", x)) != 0, text.split('\n')))
 
     #Converts the text (received in paragraphs) to speech
     convertpts(para)
-
+    #Redirects to DASHBOARD
     response = RedirectResponse(url='http://localhost:5000/dashboard')
     
     return response
