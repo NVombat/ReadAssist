@@ -1,5 +1,6 @@
 import sqlite3
 
+#creates a summary table
 def summarydb(path :str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
@@ -8,6 +9,7 @@ def summarydb(path :str):
     cur.execute(cmd)
     conn.commit()
 
+#insert commands for summary table
 def insertsummary(tablename : str, email : str, summary : str, path :str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
@@ -19,6 +21,7 @@ def insertsummary(tablename : str, email : str, summary : str, path :str):
     cur.execute(cmd)
     conn.commit()
 
+#commands to get fetch complete summary from table where email = currently logged in user    
 def getsummary(email : str, path : str):
     
     conn = sqlite3.connect(path)
