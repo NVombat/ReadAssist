@@ -11,7 +11,7 @@
 Click below to check out our project details.
 
 - [Description](#description)
-- [System Diagram](#sys-diag)
+- [System Diagram](#system-diagram)
 - [Tech Stack](#tech-stack)
 - [Preview](#preview)
 - [Contributors](#contributors)
