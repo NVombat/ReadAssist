@@ -15,6 +15,10 @@ from models.savedtext import (
     getsummary
 )
 
+from models.summ import (
+    getq
+)
+
 from ML.OCR import get_text
 import time
 from gtts import gTTS 
@@ -24,7 +28,7 @@ import sqlite3
 #from ML.summarize import
 #from ML.tts import
 
-app = Flask(__name__)
+app = Flask(_name_)
 app.secret_key = 'somekey'
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
@@ -111,9 +115,9 @@ def dash():
 @app.route('/display', methods=['GET', 'POST'])
 def disp():
     if g.user != None:
-
-        return render_template("display.html", name=name, email=g.user[0])
+        summ = getq(g.user[0])[0]
+        return render_template("display.html", name=getname(g.user),  text=summ)
     return redirect('/')
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     app.run(debug=True, port=5000)

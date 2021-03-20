@@ -4,7 +4,7 @@ def summarydb(path :str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
 
-    cmd = 'CREATE TABLE IF NOT EXISTS summary_tbl(Email TEXT, Summary TEXT)'
+    cmd = 'CREATE TABLE IF NOT EXISTS Text(Email TEXT, Summary TEXT)'
     cur.execute(cmd)
     conn.commit()
 
@@ -24,7 +24,7 @@ def getsummary(email : str, path : str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
 
-    sql = f"SELECT Summary FROM summary_tbl WHERE Email = '{email}' "
+    sql = f"SELECT Summary FROM Text WHERE Email = '{email}' "
     cur.execute(sql)
     complete_summary = cur.fetchall()
 
@@ -34,5 +34,5 @@ def getsummary(email : str, path : str):
     
 if __name__ == '__main__':
     summarydb()
-    insertsummary('summary_tbl', 'at8029srmist', 'SOMEONE', path='../app.db')
+    insertsummary('Text', 'at8029srmist', 'SOMEONE', path='../app.db')
     

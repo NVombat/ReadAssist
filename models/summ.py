@@ -23,6 +23,6 @@ def getq(user_email : str):
 
     sql = f"SELECT Summary FROM summary_tbl WHERE Email='{user_email}' "
     cur.execute(sql)
-    fsummary = cur.fetchall()
+    fsummary = cur.fetchone()
     
     return fsummary
