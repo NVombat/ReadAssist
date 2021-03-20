@@ -18,7 +18,7 @@ def send_mail_summ(e : str, s : str):
     cur.execute(cmd)
     n = cur.fetchone()
     user_name = n[0]
-    #print(user_name)
+    
 
     subject = 'Read Assist Summary'
     body = f'Dear {user_name}\nThankyou for choosing Read Assist.\n\nTHIS IS THE SUMMARY OF THE UPLOADED DOCUMENT.\n\n{s}\n\nWe hope to see you again!\n\nThe Read Assist Team'
@@ -43,7 +43,7 @@ def send_mail_ques(e : str, s : str):
     cur.execute(cmd)
     n = cur.fetchone()
     user_name = n[0]
-    #print(user_name)
+    
 
     subject = 'Read Assist Questions'
     body = f'Dear {user_name}\nThankyou for choosing Read Assist.\n\n THESE ARE THE QUESTIONS BASED ON THE UPLOADED FILE:\n\n{s}\n\nWe hope to see you again!\n\nThe Read Assist Team'
@@ -54,4 +54,3 @@ def send_mail_ques(e : str, s : str):
     server.quit()
 
 
-#send_mail_summ("ronaldo72emiway@gmail.com","Hi")
