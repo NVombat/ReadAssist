@@ -3,8 +3,6 @@
 
 ![logo](https://user-images.githubusercontent.com/68011962/111876211-b730f880-89c3-11eb-9412-bdd063635bf4.png)
 
-> This is a project made as a Submission for HACK NITR under the Open Innovation Category
-
 ---
 
 ### Table of Contents
