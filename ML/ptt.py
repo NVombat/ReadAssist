@@ -24,4 +24,4 @@ def get_pdf(path : str):
     return text
 if __name__ == '__main__':
     #Print the text when pdf path is passed to function
-    print(get_pdf("/home/aradhya/Desktop/hacks/pyrus/text.pdf"))
+    print(get_pdf("/home/nvombat/Desktop/ReadAssist/Resume.pdf"))

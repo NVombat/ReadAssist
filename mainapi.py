@@ -1,5 +1,6 @@
 #Import Libraries and functions
-from fastapi import FastAPI 
+from fastapi import FastAPI
+import uvicorn
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 from models.savedtext import (
@@ -16,9 +17,9 @@ from gtts import gTTS
 import os
 import sqlite3
 import re
-from sendemail import (
-    send_mail_summ, send_mail_ques
-)
+# from sendemail import (
+#     send_mail_summ, send_mail_ques
+# )
 
 from ML.wrapper import customwrapper
 transformer = customwrapper()
@@ -29,13 +30,13 @@ app = FastAPI()
 async def S(user : str):
     #Gets text from database
     text = getsummary(user, "app.db")[-1][0]
-    max_len = int(len(text.split(" "))*0.5)
+    max_len = int(len(text.split(" "))*0.8)
     min_len = int(len(text.split(" "))*0.2)
     #Creates summary and limits min and max length
     summary = transformer.summarize(text, min_length=min_len, max_lenght=max_len)
     
     #Sends email with summary
-    send_mail_summ(user,summary[0]["summary_text"])
+    #send_mail_summ(user,summary[0]["summary_text"])
     #Inserts summary into database
     insert(user, summary[0]["summary_text"])
     #Redirects to display
@@ -79,7 +80,7 @@ async def Q(user : str):
     #Gets questions from database
     qu = getq(user)
     #Sends mail with questions
-    send_mail_ques(user, qu[0])
+    #send_mail_ques(user, qu[0])
     #Redirects to the DISPLAY
     response = RedirectResponse(url='http://localhost:5000/display')
     
@@ -119,3 +120,6 @@ async def V(user : str):
     response = RedirectResponse(url='http://localhost:5000/dashboard')
     
     return response
+
+if __name__ == '__main__':
+    uvicorn.run(app, port=2222)

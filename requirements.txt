@@ -1,7 +1,10 @@
 transformers==3.3.0
 pytesseract
 torch
+gTTS
+pdf2image
 nltk
 flask
 fastapi
 uvicorn[standard]
+#uvicorn mainapi:app --reload --port 2222
