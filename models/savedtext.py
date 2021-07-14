@@ -1,29 +1,30 @@
 import sqlite3
 
 #Creates a table Text to store the users complete uploaded text
-def summarydb(path :str):
+def text_tbl(path :str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
 
-    cmd = 'CREATE TABLE IF NOT EXISTS Text(Email TEXT, Summary TEXT)'
+    cmd = 'CREATE TABLE IF NOT EXISTS Text(Email TEXT, Text TEXT)'
     cur.execute(cmd)
     conn.commit()
 
+
 #insert commands for adding TEXT 
-def insertsummary(tablename : str, email : str, summary : str, path :str):
+def insert_text(tablename : str, email : str, text : str, path :str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
 
-    values = (email, summary)
+    values = (email, text)
     cmd =f'INSERT INTO {tablename} VALUES{values}' 
     print(cmd)
 
     cur.execute(cmd)
     conn.commit()
 
+
 #commands to get fetch complete TEXT from table where email = currently logged in user    
-def getsummary(email : str, path : str):
-    
+def get_text(email : str, path : str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
 
@@ -34,8 +35,6 @@ def getsummary(email : str, path : str):
     return complete_summary
 
 
-    
 if __name__ == '__main__':
-    summarydb()
-    insertsummary('Text', 'at8029srmist', 'SOMEONE', path='../app.db')
-    
+    text_tbl()
+    insert_text('Text', 'at8029srmist', 'SOMEONE', path='../app.db')

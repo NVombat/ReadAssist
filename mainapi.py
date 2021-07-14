@@ -4,8 +4,7 @@ import uvicorn
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 from models.savedtext import (
-    getsummary
-
+    get_text
 )
 
 from models.summ import (
@@ -29,7 +28,7 @@ app = FastAPI()
 @app.get('/summ')
 async def S(user : str):
     #Gets text from database
-    text = getsummary(user, "app.db")[-1][0]
+    text = get_text(user, "app.db")[-1][0]
     max_len = int(len(text.split(" "))*0.8)
     min_len = int(len(text.split(" "))*0.2)
     #Creates summary and limits min and max length
@@ -48,7 +47,7 @@ async def S(user : str):
 @app.get('/ques')
 async def Q(user : str):
     #Gets text from database
-    quest = getsummary(user, "app.db")[-1][0]
+    quest = get_text(user, "app.db")[-1][0]
     templist = []
     
     quest = quest.split(" ")
@@ -110,7 +109,7 @@ def convertpts(para : list):
 @app.get('/voic')
 async def V(user : str):
     #Get text from database 
-    text = str(getsummary(user, "app.db")[-1][0])
+    text = str(get_text(user, "app.db")[-1][0])
     #Convert text to paragraphs
     para = list(filter(lambda x: x != "" and len(re.sub(r" ", "", x)) != 0, text.split('\n')))
 

@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, session, g, redirect
 from PIL import Image
 from ML import wrapper
+
 from models.users import (
     checkpassword,
     getemail,
@@ -11,9 +12,9 @@ from models.users import (
 )
 
 from models.savedtext import (
-    summarydb,
-    insertsummary,
-    getsummary
+    insert_text,
+    get_text,
+    text_tbl
 )
 
 from models.summ import (
@@ -32,7 +33,7 @@ app.secret_key = 'somekey'
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 make_user()
-summarydb("app.db")
+text_tbl("app.db")
 summary_tbl("app.db")
 
 # transformer = wrapper.customwrapper()
@@ -103,7 +104,7 @@ def upload():
 
             #Insert text into database
             text = ' '.join(text)
-            insertsummary('Text', g.user[0], text, path='app.db')
+            insert_text('Text', g.user[0], text, path='app.db')
 
         return render_template("upload.html")
     return redirect("/")
