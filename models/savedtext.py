@@ -10,20 +10,20 @@ def text_tbl(path :str):
     conn.commit()
 
 
-#insert commands for adding TEXT 
+#insert commands for adding TEXT
 def insert_text(tablename : str, email : str, text : str, path :str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
 
     values = (email, text)
-    cmd =f'INSERT INTO {tablename} VALUES{values}' 
+    cmd =f'INSERT INTO {tablename} VALUES{values}'
     print(cmd)
 
     cur.execute(cmd)
     conn.commit()
 
 
-#commands to get fetch complete TEXT from table where email = currently logged in user    
+#commands to get fetch complete TEXT from table where email = currently logged in user
 def get_text(email : str, path : str):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
